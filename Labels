@@ -1,0 +1,49 @@
+************************************Start************************
+
+Note:-Labels commands
+
+
+Step-1 minikube start
+
+Step-2 vi pod5.yml
+
+
+EXAMPLE OF LABELS
+
+
+kind: Pod
+apiVersion: v1
+metadata:
+  name: delhipod
+  labels:                                                   
+    env: development
+    class: pods
+spec:
+
+    containers:
+       - name: c00
+         image: ubuntu
+         command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]
+
+
+Step-3  kubectl apply -f pod5.yml
+
+Step-4 kubectl get pods
+
+Step-5 kubectl get pods -o wide
+
+Step-6 kubectl get pods --show-labels  (check lables)
+
+Step-7 kubectl label pods delhipod myname=devashish ( Create labels)
+
+Step-8 kubectl get pods -l env=development ( Check lables with name like- development)
+
+Step-9 kubectl get pods -l env!=development (Without check labels commands)
+
+Step-10 kubectl delete pods -l env=development (Delete pods help of labels)
+
+Step-11  kubectl get pods -l 'env in (development,testing)'  ( search by lables in)
+
+Step-12 kubectl get pods -l 'env notin (development,testing)' search bylabes notin)
+
+***********************************END*******************************
